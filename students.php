@@ -384,7 +384,6 @@ $stmt->close();
                         <select id="gender" name="gender">
                             <option value="Male" <?php echo ($gender == 'Male') ? 'selected' : ''; ?>>Male</option>
                             <option value="Female" <?php echo ($gender == 'Female') ? 'selected' : ''; ?>>Female</option>
-                            <option value="Other" <?php echo ($gender == 'Other') ? 'selected' : ''; ?>>Other</option>
                         </select>
                     </div>
                     
