@@ -1,6 +1,8 @@
 <?php
 require_once 'conn.php';
 
+// connect to SQL
+
 // Initialize variables
 $name = $email = $phone = $office = $hours = $dob = $gender = $hire_date = $salary = $rank = $department = '';
 $error = '';
