@@ -3,10 +3,11 @@ session_start();
 
 $host = "localhost";
 $user = "root";
-$pass = "";
-$dpName = "university_db";
+$pass = "root";
+$dp = "university_db";
+$port = 3306;
 
-$conn = mysqli_connect($host,$user,$pass,$dpName);
+$conn = mysqli_connect($host,$user,$pass,$dp,$port);
 
 if (!$conn) {
     echo "Connection faild";

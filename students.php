@@ -157,18 +157,20 @@ $stmt->close();
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
         }
         
         header {
-            background-color: #2c3e50;
+            background-color: #212121;
             color: white;
             padding: 20px 0;
             margin-bottom: 30px;
         }
-        
+                    
         header h1 {
+            font-size: 3rem;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
         
         .nav-links {
@@ -178,7 +180,7 @@ $stmt->close();
             margin-top: 20px;
         }
         
-        .nav-links a {
+        .container a {
             color: white;
             text-decoration: none;
             padding: 5px 10px;
@@ -186,7 +188,7 @@ $stmt->close();
             transition: background-color 0.3s;
         }
         
-        .nav-links a:hover {
+        .container a:hover {
             background-color: #34495e;
         }
         
@@ -324,12 +326,8 @@ $stmt->close();
 <body>
     <header>
         <div class="container">
-            <h1>Student Management System</h1>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="students.php">Students</a>
-                <a href="professors.php">Professors</a>
-            </div>
+            <a href="index.html">Back</a>
+            <h1>Students Portal</h1>
         </div>
     </header>
     

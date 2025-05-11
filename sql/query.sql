@@ -60,33 +60,6 @@ CREATE TABLE course (
     FOREIGN KEY (department_id) REFERENCES department(department_id)
 );
 
--- Section table
-CREATE TABLE section (
-    section_id INT AUTO_INCREMENT PRIMARY KEY,
-    course_id VARCHAR(10) NOT NULL,
-    professor_id INT NOT NULL,
-    semester VARCHAR(20) NOT NULL,
-    schedule VARCHAR(100) NOT NULL,
-    classroom VARCHAR(50) NOT NULL,
-    capacity INT NOT NULL,
-    enrolled_count INT DEFAULT 0,
-    FOREIGN KEY (course_id) REFERENCES course(course_id),
-    FOREIGN KEY (professor_id) REFERENCES professor(professor_id)
-);
-
--- Enrollment table
-CREATE TABLE enrollment (
-    enrollment_id INT AUTO_INCREMENT PRIMARY KEY,
-    student_id INT NOT NULL,
-    section_id INT NOT NULL,
-    enrollment_date DATE NOT NULL,
-    grade ENUM('A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'F', 'W', 'I') DEFAULT NULL,
-    status ENUM('Registered', 'Dropped', 'Completed') DEFAULT 'Registered',
-    FOREIGN KEY (student_id) REFERENCES student(student_id),
-    FOREIGN KEY (section_id) REFERENCES section(section_id),
-    UNIQUE KEY (student_id, section_id)
-);
-
 -- Insert 10 sample departments
 INSERT INTO department VALUES
 ('CS', 'Computer Science', 'Engineering Building', 500000.00, '1980-01-15', '555-1001', 'cs@university.edu'),
@@ -138,29 +111,3 @@ INSERT INTO course VALUES
 ('PSY105', 'Introduction to Psychology', 'Basic psychological principles', 3, NULL, 'PSY', '100'),
 ('ECON201', 'Principles of Economics', 'Micro and macroeconomic theory', 3, NULL, 'ECON', '200'),
 ('ART120', 'Drawing Fundamentals', 'Basic drawing techniques', 3, NULL, 'ART', '100');
-
--- Insert 10 sample sections
-INSERT INTO section VALUES
-(NULL, 'CS101', 1, 'Fall 2023', 'MWF 10:00-10:50', 'ENG-205', 30, 25),
-(NULL, 'MATH201', 2, 'Fall 2023', 'TTh 1:00-2:15', 'MATH-310', 25, 20),
-(NULL, 'ENG102', 3, 'Fall 2023', 'MW 2:00-3:15', 'ENG-150', 20, 18),
-(NULL, 'PHYS210', 4, 'Fall 2023', 'MWF 9:00-9:50', 'PHYS-220', 25, 22),
-(NULL, 'CHEM101', 5, 'Fall 2023', 'TTh 10:00-11:15', 'CHEM-315', 30, 28),
-(NULL, 'BIO202', 6, 'Fall 2023', 'MWF 1:00-1:50', 'BIO-210', 20, 18),
-(NULL, 'HIST110', 7, 'Fall 2023', 'TTh 2:00-3:15', 'HIST-110', 25, 20),
-(NULL, 'PSY105', 8, 'Fall 2023', 'MW 9:00-10:15', 'PSY-305', 30, 25),
-(NULL, 'ECON201', 9, 'Fall 2023', 'TTh 9:00-10:15', 'ECON-215', 25, 22),
-(NULL, 'ART120', 10, 'Fall 2023', 'MWF 2:00-2:50', 'ART-120', 15, 12);
-
--- Insert 10 sample enrollments
-INSERT INTO enrollment VALUES
-(NULL, 1, 1, '2023-08-28', 'A', 'Completed'),
-(NULL, 1, 2, '2023-08-28', 'B+', 'Completed'),
-(NULL, 2, 2, '2023-08-28', 'A-', 'Completed'),
-(NULL, 3, 3, '2023-08-28', 'B', 'Completed'),
-(NULL, 4, 4, '2023-08-28', 'A', 'Completed'),
-(NULL, 5, 5, '2023-08-28', 'B-', 'Completed'),
-(NULL, 6, 6, '2023-08-28', 'C+', 'Completed'),
-(NULL, 7, 7, '2023-08-28', 'A-', 'Completed'),
-(NULL, 8, 8, '2023-08-28', 'B+', 'Completed'),
-(NULL, 9, 9, '2023-08-28', 'A', 'Completed');
